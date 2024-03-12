@@ -1,5 +1,19 @@
 
 defmodule SpeedElixir do
+
+  @on_load :load_nif
+
+ ## this function fool for a so or a dll
+ ## return Ok if the nif is loaded
+ def load_nif do
+  :ok = :erlang.load_nif(String.to_charlist("priv/sum_iterative_nif"), 0)
+ end
+
+ def sum_iterative_nif(n) do
+  :erlang.nif_error("Errore nel caricamento nif")
+ end
+
+
   # Funzione ricorsiva per calcolare la somma dei numeri da 1 a N
   # Questa funzione ricorsiva non è ottimizzata con la tail_recursion
   # Da ottimizzare
@@ -28,5 +42,8 @@ defmodule SpeedElixir do
     # Misura il tempo di esecuzione della funzione sum_iterative
     {time_iterative, result_iterative} = :timer.tc(&sum_iterative/1, [n],:millisecond)
     IO.puts "Tempo sum_iterative:             #{time_iterative} ms, risultato: #{result_iterative}"
+
+    {time_iterative_nif, result_iterative_nif} = :timer.tc(&sum_iterative_nif/1, [n],:millisecond)
+    IO.puts "Tempo sum_iterative con nif:     #{time_iterative_nif} ms, risultato: #{result_iterative_nif}"
   end
 end
