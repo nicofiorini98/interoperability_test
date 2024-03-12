@@ -1,6 +1,6 @@
-#include "./includeErl/erl_nif.h" // only for debug, not compile with this
+// #include "./includeErl/erl_nif.h" // only for debug, not compile with this
 // Remove to compile
-// #include "erl_nif.h" 
+#include "erl_nif.h" 
 #include "string.h"
 
 

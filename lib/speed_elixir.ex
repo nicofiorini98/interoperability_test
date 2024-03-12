@@ -32,18 +32,18 @@ defmodule SpeedElixir do
   # Funzione per eseguire il test di velocità
   def speed_test(n) do
     # Misura il tempo di esecuzione della funzione sum_recursive
-    {time_recursive, result_recursive} = :timer.tc(&sum_recursive/1, [n],:millisecond)
-    IO.puts "Tempo sum_recursive:             #{time_recursive} ms, risultato: #{result_recursive}"
+    {time_recursive, result_recursive} = :timer.tc(&sum_recursive/1, [n])
+    IO.puts "Tempo sum_recursive:             #{time_recursive} microsec, risultato: #{result_recursive}"
 
     # Misura il tempo di esecuzione della funzione sum_recursive2 ottimizzata con la tail_recursion
-    {time_recursive2, result_recursive2} = :timer.tc(&sum_recursive2/2, [n,0],:millisecond)
-    IO.puts "Tempo sum_recursive_ottimizzata: #{time_recursive2} ms, risultato: #{result_recursive2}"
+    {time_recursive2, result_recursive2} = :timer.tc(&sum_recursive2/2, [n,0])
+    IO.puts "Tempo sum_recursive_ottimizzata: #{time_recursive2} microsec, risultato: #{result_recursive2}"
 
     # Misura il tempo di esecuzione della funzione sum_iterative
-    {time_iterative, result_iterative} = :timer.tc(&sum_iterative/1, [n],:millisecond)
-    IO.puts "Tempo sum_iterative:             #{time_iterative} ms, risultato: #{result_iterative}"
+    {time_iterative, result_iterative} = :timer.tc(&sum_iterative/1, [n])
+    IO.puts "Tempo sum_iterative:             #{time_iterative} microsec, risultato: #{result_iterative}"
 
-    {time_iterative_nif, result_iterative_nif} = :timer.tc(&sum_iterative_nif/1, [n],:millisecond)
-    IO.puts "Tempo sum_iterative con nif:     #{time_iterative_nif} ms, risultato: #{result_iterative_nif}"
+    {time_iterative_nif, result_iterative_nif} = :timer.tc(&sum_iterative_nif/1, [n])
+    IO.puts "Tempo sum_iterative con nif:     #{time_iterative_nif} microsec, risultato: #{result_iterative_nif}"
   end
 end
