@@ -1,6 +1,6 @@
-// #include "./includeErl/erl_nif.h" // only for debug, not compile with this
+#include "./includeErl/erl_nif.h" // only for debug, not compile with this
 // Remove to compile
-#include "erl_nif.h" 
+// #include "erl_nif.h" 
 #include "string.h"
 
 
@@ -13,6 +13,8 @@
 
 
 // Funzione iterativa per calcolare la somma dei numeri da 1 a N
+// dichiarare la funzione static per limitare l'accesso a funzioni che non devono essere esposte
+// all'esterno del modulo
 static ERL_NIF_TERM sum_iterative_nif(ErlNifEnv* env, int argc, const ERL_NIF_TERM argv[]) {
     int n;
     if (!enif_get_int(env, argv[0], &n)) {

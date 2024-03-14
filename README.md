@@ -18,6 +18,7 @@ in `./priv`.
 
 ## Come compilare un NIF
 
+[Documentazione NIF](https://www.erlang.org/doc/man/erl_nif)
 Compilare con gcc il codice nif come libreria condivisa (.so)
 
 ```bash
