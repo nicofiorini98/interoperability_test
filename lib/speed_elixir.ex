@@ -10,7 +10,7 @@ defmodule SpeedElixir do
   :ok = :erlang.load_nif(String.to_charlist("priv/sum_iterative_nif"), 0)
  end
 
- def sum_iterative_nif(n) do
+ def sum_iterative_nif(_n) do
   :erlang.nif_error("Errore nel caricamento nif")
  end
 
