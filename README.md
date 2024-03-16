@@ -35,7 +35,7 @@ Per trovare il path si può eseguire: `elixir -e "IO.puts :code.root_dir()"`
 
 
 ---
-Starting TCP server
+Starting TCP echo server, is a simple test for tcp connections
 
 ```bash
 PORT=4321 mix run --no-halt
