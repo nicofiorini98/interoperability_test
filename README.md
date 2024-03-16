@@ -32,3 +32,11 @@ Per trovare il path si può eseguire: `elixir -e "IO.puts :code.root_dir()"`
 ---
 
 ![Esempio Demo](./readme_docs/Pasted%20image%2020240312184053.png)
+
+
+---
+Starting TCP server
+
+```bash
+PORT=4321 mix run --no-halt
+```

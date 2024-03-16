@@ -1,5 +1,6 @@
 defmodule CallPython.MixProject do
-  alias Hex.Application
+  alias DialyxirVendored.Warnings.Call
+  # alias Hex.Application
   use Mix.Project
 
   def project do
@@ -16,7 +17,7 @@ defmodule CallPython.MixProject do
   def application do
     [
       extra_applications: [:logger],
-      # mod: {CallPython.Application, []}
+      mod: {CallPython.MyApplication,[]}
     ]
   end
 
