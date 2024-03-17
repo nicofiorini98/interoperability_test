@@ -28,6 +28,7 @@ defmodule MyTCPServer do
   defp serve(socket) do
     socket
     |> read_line()
+    |> String.upcase()
     |> write_line(socket)
 
     serve(socket)
