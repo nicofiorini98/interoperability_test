@@ -18,6 +18,7 @@ defmodule MyTCPServer do
     loop_acceptor(socket)
   end
 
+  # funzione che accetta una connessione del client
   defp loop_acceptor(socket) do
     {:ok, client} = :gen_tcp.accept(socket)
     {:ok, pid} = Task.Supervisor.start_child(MyTCPServer.TaskSupervisor, fn -> serve(client) end)

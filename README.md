@@ -13,6 +13,8 @@ in `./priv`.
 
 ## Esecuzione demo
 
+The first time you run the program, download the depencies executing: `mix deps.get`
+
 - `iex -S mix`
 - `SpeedElixir.speedtest(1000000)`
 
