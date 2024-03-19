@@ -42,3 +42,16 @@ Starting TCP echo server, is a simple test for tcp connections
 ```bash
 PORT=4321 mix run --no-halt
 ```
+
+--- 
+
+## Eseguire Hello world Nif del modulo ElixirNif
+
+```bash 
+iex -S mix
+```
+ed
+
+```ruby
+ElixirNif.hello
+```
