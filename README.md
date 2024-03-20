@@ -3,8 +3,9 @@
 Questa repository contiene alcuni test per verificare le performance di Elixir.
 Viene usato anche del codice esterno in alcuni test per verificare l'interoperabilità.
 
-Il codice NIF si trova in `./external_code/nif`, le due .so compilate per linux sono
-in `./priv`.
+Il codice NIF si trova in `./external_code/nif`, le due shared library sono già compilate per linux
+si trovano nella cartella `./priv`
+.
 
 ## Requisiti per eseguire la demo
 
@@ -13,16 +14,20 @@ in `./priv`.
 
 ## Esecuzione demo
 
-The first time you run the program, download the depencies executing: 
+La prima volta scaricare le dipendenze:
 
 - `mix deps.get`
 
-una volta scaricate le dipendenze eseguire:
+---
+
+### Demo speedtest somma n elementi
 
 - `iex -S mix`
-- `SpeedElixir.speedtest(1000000)` oppure `SpeedElixir.speedtest(1000000)`
+- `SpeedElixir.speedtest(1000000)` oppure `SpeedElixir.speedtest2(1000000)`
 
-## Come compilare un NIF
+![Esempio Demo](./readme_docs/Pasted%20image%2020240312184053.png)
+
+#### Come compilare un NIF
 
 [Documentazione NIF](https://www.erlang.org/doc/man/erl_nif)
 Compilare con gcc il codice nif come libreria condivisa (.so)
@@ -39,20 +44,19 @@ Per trovare il path si può eseguire: `elixir -e "IO.puts :code.root_dir()"`
 
 ---
 
-![Esempio Demo](./readme_docs/Pasted%20image%2020240312184053.png)
+### Tcp server
 
+Si è sperimentato un Tcp echo server che risponde con il messaggio
+inviato ma maiuscolo.
 
----
+Nel file di configurazione `mix.exs` ci sono varie funzioni
+decommentare MyTcpApplication per eseguire il server TCP.
 
-### Tcp Echo server
-Starting TCP echo server, is a simple test for tcp connections.
-In mix.exs configuration file there are various function to initialize the
-application. Uncomment the one you want to run.
 ```ruby
 def application do
     [
       extra_applications: [:logger],
-      # mod: {InteroperabilityTest.MyTcpApplication,[]}
+      mod: {InteroperabilityTest.MyTcpApplication,[]} # funnzione da eseguire per inizializzare ilTCP server
       # mod: {InteroperabilityTest.MyHttpApplication,[]}
     ]
   end
@@ -64,13 +68,20 @@ Then execute:
 mix run --no-halt
 ```
 
---- 
+---
+
+### Http Server
+
+Si è sperimentato un server http con la libreria `plug_cowboy`
+configurare MyHttpApplication come funzione di avvio per testare
+ed eseguire mix run --no-halt.
 
 ## Eseguire Hello world Nif del modulo ElixirNif
 
-```bash 
+```bash
 iex -S mix
 ```
+
 ed
 
 ```ruby
