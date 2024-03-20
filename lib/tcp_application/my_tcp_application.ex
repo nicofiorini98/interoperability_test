@@ -1,4 +1,4 @@
-defmodule InteroperabilityTest.MyApplication do
+defmodule InteroperabilityTest.MyTcpApplication do
   @moduledoc false
   use Application
 

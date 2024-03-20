@@ -2,7 +2,7 @@ import socket
 import threading
 
 # function that send message
-def send_request(host, port, message):
+def send_request(host, port, message,numero):
     # Create a TCP socket
     client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
@@ -15,7 +15,7 @@ def send_request(host, port, message):
 
         # Receive the response
         response = client_socket.recv(1024)
-        print(f"Response from {host}:{port}: {response.decode()}")
+        print(f"Response {numero} from {host}:{port}: {response.decode()}")
 
     except Exception as e:
         print(f"Error connecting to {host}:{port}: {e}")
@@ -26,8 +26,8 @@ def send_request(host, port, message):
 
 def simulate_requests(host, port, num_requests, message):
     threads = []
-    for _ in range(num_requests):
-        t = threading.Thread(target=send_request, args=(host, port, message))
+    for i in range(num_requests):
+        t = threading.Thread(target=send_request, args=(host, port, message,i))
         t.start()
         threads.append(t)
     for thread in threads:

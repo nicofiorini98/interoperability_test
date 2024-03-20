@@ -13,10 +13,14 @@ in `./priv`.
 
 ## Esecuzione demo
 
-The first time you run the program, download the depencies executing: `mix deps.get`
+The first time you run the program, download the depencies executing: 
+
+- `mix deps.get`
+
+una volta scaricate le dipendenze eseguire:
 
 - `iex -S mix`
-- `SpeedElixir.speedtest(1000000)`
+- `SpeedElixir.speedtest(1000000)` oppure `SpeedElixir.speedtest(1000000)`
 
 ## Come compilare un NIF
 
