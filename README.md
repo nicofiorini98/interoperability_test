@@ -27,6 +27,18 @@ La prima volta scaricare le dipendenze:
 
 <!-- ![Esempio Demo](./readme_docs/Pasted%20image%2020240312184053.png) -->
 
+### Demo Nif C++
+
+Il codice Nif fa un prodotto scalare di due liste di 1_000_000 di elementi random
+viene confrontato con il codice Elixir, il file nif si trova in `/external_code/nif/dot_nif.cpp`
+
+La libreria `.so` già compilata e si trova in `/priv/dot_nif.so`
+
+Per eseguire:
+
+- `iex -S mix`
+- `ElixirCpp.benchmark`
+
 #### Come compilare un NIF
 
 [Documentazione NIF](https://www.erlang.org/doc/man/erl_nif)
