@@ -25,7 +25,7 @@ La prima volta scaricare le dipendenze:
 - `iex -S mix`
 - `SpeedElixir.speedtest(1000000)` oppure `SpeedElixir.speedtest2(1000000)`
 
-![Esempio Demo](./readme_docs/Pasted%20image%2020240312184053.png)
+<!-- ![Esempio Demo](./readme_docs/Pasted%20image%2020240312184053.png) -->
 
 #### Come compilare un NIF
 

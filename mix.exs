@@ -17,7 +17,7 @@ defmodule InteroperabilityTest.MixProject do
     [
       extra_applications: [:logger],
       # mod: {InteroperabilityTest.MyTcpApplication,[]}
-      mod: {InteroperabilityTest.MyHttpApplication,[]}
+      # mod: {InteroperabilityTest.MyHttpApplication,[]}
     ]
   end
 
