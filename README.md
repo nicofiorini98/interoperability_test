@@ -1,7 +1,7 @@
 # Interoperability Test
 
-Questa repository contiene alcuni test per capire come Elixir si interfaccia
-con altri linguaggi.
+Questa repository contiene alcuni test per verificare le performance di Elixir.
+Viene usato anche del codice esterno in alcuni test per verificare l'interoperabilità.
 
 Il codice NIF si trova in `./external_code/nif`, le due .so compilate per linux sono
 in `./priv`.
@@ -26,6 +26,8 @@ una volta scaricate le dipendenze eseguire:
 
 [Documentazione NIF](https://www.erlang.org/doc/man/erl_nif)
 Compilare con gcc il codice nif come libreria condivisa (.so)
+facendo attenzione ad includere l'header `erl_nif.h` presente
+nell'installazione di Erlang.
 
 ```bash
 # Posizionarsi nella cartella root del progetto nel terminale
@@ -41,10 +43,25 @@ Per trovare il path si può eseguire: `elixir -e "IO.puts :code.root_dir()"`
 
 
 ---
-Starting TCP echo server, is a simple test for tcp connections
+
+### Tcp Echo server
+Starting TCP echo server, is a simple test for tcp connections.
+In mix.exs configuration file there are various function to initialize the
+application. Uncomment the one you want to run.
+```ruby
+def application do
+    [
+      extra_applications: [:logger],
+      # mod: {InteroperabilityTest.MyTcpApplication,[]}
+      # mod: {InteroperabilityTest.MyHttpApplication,[]}
+    ]
+  end
+```
+
+Then execute:
 
 ```bash
-PORT=4321 mix run --no-halt
+mix run --no-halt
 ```
 
 --- 
