@@ -10,7 +10,7 @@ defmodule InteroperabilityTest.MyHttpApplication do
     # opzioni per il supervisor del modulo Myhttp
     opts = [strategy: :one_for_one, name: MyHttpServer.Supervisor]
 
-    Logger.info("Starting application...")
+    Logger.info("Starting application on port #{cowboy_port()}...")
 
     Supervisor.start_link(children, opts)
   end
