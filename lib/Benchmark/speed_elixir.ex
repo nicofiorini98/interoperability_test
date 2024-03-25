@@ -54,10 +54,6 @@ defmodule SpeedElixir do
         IO.puts("Timeout")
     end
 
-    # receive do
-    #   {self(),result}
-    # end
-
     Port.close(port)
   end
 
@@ -104,6 +100,12 @@ defmodule SpeedElixir do
       "sum_iterative" => fn -> sum_iterative(n) end,
       "sum_port" => fn -> sum_port(n) end,
       "sum_iterative_nif" => fn -> sum_iterative_nif(n) end
-    })
+    },
+    memory_time: 2,
+    parallel: 4,
+    formatters: [
+      {Benchee.Formatters.CSV, file: "speedElixir.csv"},
+      Benchee.Formatters.Console
+    ])
   end
 end

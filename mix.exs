@@ -18,6 +18,7 @@ defmodule InteroperabilityTest.MixProject do
       extra_applications: [:logger],
       # mod: {InteroperabilityTest.MyTcpApplication,[]}
       # mod: {InteroperabilityTest.MyHttpApplication,[]}
+      mod: {Benchmark.SpeedElixirApplication,[]} # benchmark test di interoperabilità
     ]
   end
 
@@ -26,6 +27,7 @@ defmodule InteroperabilityTest.MixProject do
     [
       {:erlport, "~> 0.11.0"},
       {:benchee, "~> 1.0", only: :dev},
+      {:benchee_csv, "~> 1.0", only: :dev},
       {:poolboy, "~> 1.5"},
       {:plug_cowboy, "~> 2.0"},
       {:httpoison, "~> 2.0"}
