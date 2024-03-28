@@ -1,4 +1,4 @@
-defmodule CallPython do
+defmodule PortCommunication do
   def start_port() do
     # Apri il port con opzioni per la comunicazione tramite stringhe
     port = Port.open({:spawn, "elixir .external_code/all_caps.exs"}, [:binary])
@@ -29,14 +29,4 @@ defmodule CallPython do
     IO.puts("Closed")
   end
 
-  # def tcp_connection do
-  #   {:ok, socket} = :gen_tcp.connect({:localhost, 9999}, [])
-
-  #   :gen_tcp.send(socket, "Hello from Elixir")
-
-  #   {:ok, data} = :gen_tcp.recv(socket, 0)
-  #   IO.puts("Received: #{data}")
-
-  #   :gen_tcp.close(socket)
-  # end
 end

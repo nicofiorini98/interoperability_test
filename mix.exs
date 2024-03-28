@@ -19,21 +19,20 @@ defmodule InteroperabilityTest.MixProject do
       # mod: {InteroperabilityTest.MyTcpApplication,[]}
       mod: {InteroperabilityTest.MyHttpApplication,[]}
       # mod: {Benchmark.SpeedElixirApplication,[]} # benchmark test di interoperabilità
+      # mod: {PythonApp.Application,[]} # test chiamata python con erlport e pooling
     ]
   end
 
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:erlport, "~> 0.11.0"},
-      {:benchee, "~> 1.0", only: :dev},
-      {:benchee_csv, "~> 1.0", only: :dev},
-      {:poolboy, "~> 1.5"},
-      {:plug_cowboy, "~> 2.0"},
-      {:httpoison, "~> 2.0"},
-      {:poison, "~> 5.0"} # for json
-      # {:dep_from_hexpm, "~> 0.3.0"},
-      # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"}
+      {:erlport, "~> 0.11.0"},              # communication library for python or ruby
+      {:benchee, "~> 1.0", only: :dev},     # benchmark library
+      {:benchee_csv, "~> 1.0", only: :dev}, # plug-in for csv output for benchee
+      {:poolboy, "~> 1.5"},                 # pooling library
+      {:plug_cowboy, "~> 2.0"},             # http server library
+      {:httpoison, "~> 2.0"},               # client http library
+      {:poison, "~> 5.0"}                   # json library
     ]
   end
 end

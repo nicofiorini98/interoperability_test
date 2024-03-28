@@ -3,6 +3,10 @@ defmodule InteroperabilityTest.MyHttpApplication do
   require Logger
 
   def start(_type, _args) do
+
+    # uncomment to start observer with the application
+    Observer.start_observer()
+
     children = [
       {Plug.Cowboy, scheme: :http, plug: Router, options: [port: cowboy_port()]}
     ]
@@ -13,8 +17,12 @@ defmodule InteroperabilityTest.MyHttpApplication do
     Logger.info("Starting application on port #{cowboy_port()}...")
 
     Supervisor.start_link(children, opts)
+
+
   end
 
   defp cowboy_port, do: Application.get_env(:example, :cowboy_port, 8080)
+
+
 
 end
