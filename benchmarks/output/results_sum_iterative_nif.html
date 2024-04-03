@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>Benchee Report</title>
+  <meta charset="utf-8">
+  <meta http-equiv="content-type" content="text/html; charset=utf8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <link rel="stylesheet" type="text/css" href="assets/stylesheets/benchee.css">
+    <link rel="stylesheet" type="text/css" href="assets/fontello/css/fontello.css">
+  
+</head>
+
+  <body>
+
+    <div class="header">
+  <h1>benchee report</h1>
+  
+
+  <span class="version-note">
+  <a href="javascript:toggleSystemDataInfo();" title="Click to toggle system info">System info</a>
+</span>
+
+</div>
+
+
+    <article id="system-info" class="benchee-systeminfo" >
+  <h3>System info</h3>
+  <ul class="benchee-systeminfo-list">
+    <li>Elixir: 1.16.0</li>
+    <li>Erlang: 26.2</li>
+    <li>Operating system: Linux</li>
+    <li>Available memory: 6.71 GB</li>
+    <li>CPU Information: AMD Ryzen 7 3700U with Radeon Vega Mobile Gfx</li>
+    <li>Number of Available Cores: 8</li>
+  </ul>
+</article>
+
+
+    
+      <article>
+        <h2>
+          <a name="run_time" href="#run_time">sum_iterative_nif Run Time</a>
+          <a href="https://github.com/PragTob/benchee_html/wiki/Chart-Types#individual">
+            <i
+              class="benchee-help-icon icon-question-circle-o"
+              title="Graphs showing the individual run time distribution for sum_iterative_nif.
+  Run Times Histogram shows the distribution of occurrences of specific run times in buckets.
+  Raw Run Times shows all individual recorded run times in the order they were recorded in."
+            ></i>
+          </a>
+        </h2>
+
+        <section>
+          <table>
+  <thead>
+    <tr>
+      <th class="text-left">Name</th>
+      
+        <th>Iterations per Second</th>
+      
+      <th>Average</th>
+      <th>Deviation</th>
+      <th>Median</th>
+      <th>Mode</th>
+      <th>Minimum</th>
+      <th>Maximum</th>
+      <th>Sample size</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      
+      <tr>
+        
+          <td class="text-left">sum_iterative_nif</td>
+        
+        
+          <td>47.29</td>
+          <td>21.15 ms</td>
+          <td>±10.51%</td>
+          <td>20.39 ms</td>
+          <td>20.36 ms</td>
+          <td>19.77 ms</td>
+          <td>34.80 ms</td>
+        
+        <td>237</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+        </section>
+
+        <section class="benchee-plot-container">
+          <div id="run-times-histogram" class="plot"></div>
+        </section>
+        <section class="benchee-plot-container">
+          <div id="raw-run-times" class="plot"></div>
+        </section>
+      </article>
+    
+
+    
+      <article>
+        <h2>
+          <a name="memory" href="#memory">sum_iterative_nif Memory</a>
+          <a href="https://github.com/PragTob/benchee_html/wiki/Chart-Types#individual">
+            <i
+              class="benchee-help-icon icon-question-circle-o"
+              title="Graphs showing the individual memory usage distribution for sum_iterative_nif.
+  Run Times Histogram shows the distribution of occurrences of specific run times in buckets.
+  Raw Run Times shows all individual recorded run times in the order they were recorded in."
+            ></i>
+          </a>
+        </h2>
+
+        <section>
+          <table>
+  <thead>
+    <tr>
+      <th class="text-left">Name</th>
+      
+      <th>Average</th>
+      <th>Deviation</th>
+      <th>Median</th>
+      <th>Mode</th>
+      <th>Minimum</th>
+      <th>Maximum</th>
+      <th>Sample size</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      
+      <tr>
+        
+          <td class="text-left">sum_iterative_nif</td>
+        
+        
+          <td>48 B</td>
+          <td>±0.00%</td>
+          <td>48 B</td>
+          <td>48 B</td>
+          <td>48 B</td>
+          <td>48 B</td>
+        
+        <td>191</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+        </section>
+
+        
+      </article>
+    
+
+    <footer>
+      <a href="https://github.com/PragTob/benchee" target="blank">benchee version: 1.3.0 </a>
+<br/>
+<a href="https://github.com/PragTob/benchee_html" target="blank">benchee_html version: 1.0.1</a>
+
+
+    </footer>
+
+    
+  <script src="assets/javascripts/plotly-2.27.0.min.js"></script>
+  <script src="assets/javascripts/benchee.js"></script>
+
+
+
+    <script>
+      var scenario = {"name":"sum_iterative_nif","job_name":"sum_iterative_nif","input_name":"__no_input","run_time_data":{"statistics":{"maximum":34804749,"mode":20356790,"sample_size":237,"average":21145904.206751056,"std_dev_ratio":0.10508424142405848,"ips":47.29048189297762,"std_dev_ips":4.969484416301726,"percentiles":{"50":20394170.0,"99":32549787.92},"median":20394170.0,"minimum":19774715,"absolute_difference":null,"relative_less":null,"relative_more":null,"std_dev":2222101.302792242},"samples":[20597313,20624333,20695808,20007624,22177965,22246634,20943263,20562357,20204354,20488217,20355328,20389281,20170089,20336252,19924367,21926221,20603224,20614244,20418777,20313458,22897007,19922554,20082835,20141275,20106981,21861519,20031809,20505640,20801105,20522942,21979592,19893859,19878180,20070592,20490552,27497628,21493979,21116388,34804749,29532655,20846942,20744699,21624193,20443693,20355518,20921692,20191108,20520228,20461367,20460385,19971726,20379002,21049923,20932463,20380304,20481464,20375325,20023293,20427693,20356790,19818999,20266901,20136896,20460205,20070843,20086482,20384512,20104927,20578717,20077816,19931690,20310222,19829239,19774715,19849416,20372389,19987386,19951619,19840058,20011410,20036417,20168937,20393459,19804091,19856228,20370074,27331576,30122975,21965896,20269496,20750069,20590560,20519316,20819640,20579319,20633470,20448242,20712799,20105598,23693505,21724702,20296156,20394170,20617210,20345339,20156724,20190387,20131546,20087795,19933103,19970393,20276750,22134693,20547930,20099717,20112841,20326122,20952220,20275797,20271570,19933484,19876937,19991793,22837225,24337465,20072936,20088125,20297940,20059370,20230312,20117420,19891706,19828526,22435399,32370040,26552722,22497265,20922113,20584027,21650933,26240534,22652097,20794984,20575522,20405733,23149512,26156346,21376728,22673346,25112733,20587324,20721796,20893029,21008235,25245173,20892547,20170319,22407537,25378944,23563220,20917134,20319660,20274435,22686050,20760319,21019195,19854936,19893981,22102673,22344989,21100689,20340429,20123311,22710155,22395474,20212979,19912094,19862600,22961828,32659956,29174622,21387869,20750650,21277392,20580531,20437402,20293832,20314130,20408207,20291247,20565302,19912225,20573868,21475434,20650322,21224862,19996513,20787730,20225463,20176861,20282911,20145422,20092212,19934456,20211006,21151214,20470073,20488187,20297408,19959934,20219412,20283863,20119995,19887007,19922263,19878410,19992404,20300825,20169718,19989270,20229351,20186019,20080151,20298109,19997033,19971325,19778683,27676775,27685711,22225354,21308209,20477016,20466456,20795444,20449785,20222318,20356790]},"memory_usage_data":{"statistics":{"maximum":48,"mode":48,"sample_size":191,"average":48.0,"std_dev_ratio":0.0,"ips":null,"std_dev_ips":null,"percentiles":{"50":48.0,"99":48.0},"median":48.0,"minimum":48,"absolute_difference":null,"relative_less":null,"relative_more":null,"std_dev":0.0},"samples":[48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,48]},"tag":null};
+
+      var inputHeadline = ""
+
+      
+        drawRunTimeHistogram(scenario, inputHeadline);
+        drawRawRunTimeChart(scenario, inputHeadline);
+      
+
+      
+        if (scenario.memory_usage_data.statistics.std_dev !== 0) {
+          drawMemoryHistogram(scenario, inputHeadline);
+          drawRawMemoryChart(scenario, inputHeadline);
+        };
+      
+    </script>
+  </body>
+</html>

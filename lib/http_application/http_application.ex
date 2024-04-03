@@ -5,7 +5,7 @@ defmodule InteroperabilityTest.MyHttpApplication do
   def start(_type, _args) do
 
     # uncomment to start observer with the application
-    Observer.start_observer()
+    # Observer.start_observer()
 
     children = [
       {Plug.Cowboy, scheme: :http, plug: Router, options: [port: cowboy_port()]}

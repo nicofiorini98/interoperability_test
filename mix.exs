@@ -19,6 +19,7 @@ defmodule InteroperabilityTest.MixProject do
       # mod: {InteroperabilityTest.MyTcpApplication,[]}
       mod: {InteroperabilityTest.MyHttpApplication,[]}
       # mod: {Benchmark.SpeedElixirApplication,[]} # benchmark test di interoperabilità
+      # mod: {Benchmark.SpeedElixirApplication,[]} # benchmark test di interoperabilità
       # mod: {PythonApp.Application,[]} # test chiamata python con erlport e pooling
     ]
   end
@@ -29,6 +30,7 @@ defmodule InteroperabilityTest.MixProject do
       {:erlport, "~> 0.11.0"},              # communication library for python or ruby
       {:benchee, "~> 1.0", only: :dev},     # benchmark library
       {:benchee_csv, "~> 1.0", only: :dev}, # plug-in for csv output for benchee
+      {:benchee_html, "~> 1.0", only: :dev},# plug-in for html output for benchee
       {:poolboy, "~> 1.5"},                 # pooling library
       {:plug_cowboy, "~> 2.0"},             # http server library
       {:httpoison, "~> 2.0"},               # client http library

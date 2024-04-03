@@ -32,7 +32,7 @@ defmodule PythonWorker do
 
   #--------------------------------------#
 
-  def call(caller, my_string) do # dire che caller deve essere un pid
+  def call(caller, my_string) do
     Task.async(fn ->
       :poolboy.transaction(
         :python_worker,
@@ -52,12 +52,9 @@ defmodule PythonWorker do
 
   @impl true
   def init(_) do
-    # path =
-    #   [:code.priv_dir(:interoperability_test), "external_code","python"] |> Path.join()
 
     path = "/home/nico/project/tesi/interoperability_test/external_code/python"
 
-    # with {:ok, pid} <- :python.start([{:python_path, to_charlist(path)}, {:python, 'python3'}]) do
     with {:ok, pid} <- :python.start([{:python_path, to_charlist(path)}]) do
       Logger.info("[#{__MODULE__}] Started python worker: #{inspect(pid)}")
       {:ok, pid}
@@ -72,12 +69,12 @@ defmodule PythonWorker do
     {:reply, {:ok, result}, pid}
   end
 
-  @impl true
-  def handle_info(msg, state) do
-    receive do
-      _ -> Logger.info(msg)
-    end
+  # @impl true
+  # def handle_info(msg, state) do
+  #   receive do
+  #     _ -> Logger.info(msg)
+  #   end
 
-  end
+  # end
 
 end

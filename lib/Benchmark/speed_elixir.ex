@@ -54,7 +54,7 @@ defmodule SpeedElixir do
         IO.puts("Timeout")
     end
 
-    Port.close(port)
+    send(port, {self(), :close})
   end
 
   # ************************ SPEED TEST **********************************#
