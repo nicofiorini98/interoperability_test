@@ -8,7 +8,7 @@ defmodule InteroperabilityTest.MyHttpApplication do
     # Observer.start_observer()
 
     children = [
-      {Plug.Cowboy, scheme: :http, plug: Router, options: [port: cowboy_port()]}
+      {Plug.Cowboy, scheme: :http, plug: MyRouter, options: [port: cowboy_port()]}
     ]
 
     # opzioni per il supervisor del modulo Myhttp
@@ -21,7 +21,7 @@ defmodule InteroperabilityTest.MyHttpApplication do
 
   end
 
-  defp cowboy_port, do: Application.get_env(:example, :cowboy_port, 8080)
+  defp cowboy_port, do: Application.get_env(:example, :cowboy_port, 5000)
 
 
 
