@@ -1,9 +1,10 @@
-# Interoperability Test
+# Interoperability and http Test in Elixir
 
-Questa repository contiene alcuni test per verificare le performance di Elixir.
-Viene usato anche del codice esterno in alcuni test per verificare l'interoperabilità.
+Questa repository contiene alcuni test per verificare le performance di Elixir,
+vengono testati dei metodi di interoperabilità in Elixir e un server http con la libreria
+`Plug`.
 
-Il codice NIF si trova in `./external_code/nif`, le due shared library sono già compilate per linux
+Il codice NIF si trova in `./external_code/nif`, le due shared library sono già compilate per linux con il compilatore gcc, le librerie compilate
 si trovano nella cartella `./priv`
 .
 
@@ -17,42 +18,6 @@ si trovano nella cartella `./priv`
 La prima volta scaricare le dipendenze:
 
 - `mix deps.get`
-
----
-
-### Demo speedtest somma n elementi
-
-- `iex -S mix`
-- `SpeedElixir.speedtest(1000000)` oppure `SpeedElixir.speedtest2(1000000)`
-
-<!-- ![Esempio Demo](./readme_docs/Pasted%20image%2020240312184053.png) -->
-
-### Demo Nif C++
-
-Il codice Nif fa un prodotto scalare di due liste di 1_000_000 di elementi random
-viene confrontato con il codice Elixir, il file nif si trova in `/external_code/nif/dot_nif.cpp`
-
-La libreria `.so` già compilata e si trova in `/priv/dot_nif.so`
-
-Per eseguire:
-
-- `iex -S mix`
-- `ElixirCpp.benchmark`
-
-#### Come compilare un NIF
-
-[Documentazione NIF](https://www.erlang.org/doc/man/erl_nif)
-Compilare con gcc il codice nif come libreria condivisa (.so)
-facendo attenzione ad includere l'header `erl_nif.h` presente
-nell'installazione di Erlang.
-
-```bash
-# Posizionarsi nella cartella root del progetto nel terminale
-gcc -o ./priv/sum_iterative_nif.so -shared -fpic -I $ERL_ROOT/usr/include ./external_code/nif/sum_nif.c
-```
-
-Sostituire il path $ERL_ROOT con il path della vostra installazione erlang.
-Per trovare il path si può eseguire: `elixir -e "IO.puts :code.root_dir()"`
 
 ---
 
@@ -84,18 +49,51 @@ mix run --no-halt
 
 ### Http Server
 
-Si è sperimentato un server http con la libreria `plug_cowboy`
-configurare MyHttpApplication come funzione di avvio per testare
-ed eseguire mix run --no-halt.
+Si è sperimentato un server http con la libreria `plug_cowboy`,
+decommentare la riga nel file `mix.exs`:
 
-## Eseguire Hello world Nif del modulo ElixirNif
+```elixir
+mod: {InteroperabilityTest.MyHttpApplication,[]}
+```
+
+ed eseguire:
 
 ```bash
 iex -S mix
 ```
 
-ed
+Con l'ambiente interattivo avviato, dovreste vedere la stringa:
 
-```ruby
-ElixirNif.hello
+```text
+[info] Starting application on port 5000..
 ```
+
+---
+
+### Benchmark Interoperabilita
+
+Vengono fatti dei benchamark di interoperabilità confrontando 4 strategie di
+implementazione:
+
+1. Funzione Elixir con ricorsione semplice
+2. Funzione Elixir con ricorsione ottimizzata
+3. Funzione cpp con IPC tramite Port
+4. Funzione cpp tramite funzione nativa, compilata come shared object ("./priv/list_sum_iterative_nif")
+
+Il codice NIF non compilato si trova "./external_code/nif/list_sum.cpp"
+Il codice C++ per Port si trova "./external_code/c_src/list_sum_port.cpp"
+
+#### Come compilare un NIF
+
+[Documentazione NIF](https://www.erlang.org/doc/man/erl_nif)
+Compilare con gcc il codice nif come libreria condivisa (.so)
+facendo attenzione ad includere l'header `erl_nif.h` presente
+nell'installazione di Erlang.
+
+```bash
+# Posizionarsi nella cartella root del progetto nel terminale
+gcc -o ./priv/sum_iterative_nif.so -shared -fpic -I $ERL_ROOT/usr/include ./external_code/nif/sum_nif.c
+```
+
+Sostituire il path $ERL_ROOT con il path della vostra installazione erlang.
+Per trovare il path si può eseguire: `elixir -e "IO.puts :code.root_dir()"`
